@@ -60,11 +60,11 @@ form.addEventListener('submit', (e) => {
     const pages = document.querySelector('#pages');
     const read = document.querySelector('#read');
 
-    let titleContent = title.value;
-    let authorContent = author.value;
-    let pagesContent = pages.value;
-    let readContent = read.value;
-
-    addBookToLibrary(titleContent, authorContent, pagesContent, readContent);
-    displayBook()
+    addBookToLibrary(title.value, author.value, pages.value, read.value);
+    
+    title.value = '';
+    author.value = '';
+    pages.value = '';
+    read.value = '';
+    
 })
