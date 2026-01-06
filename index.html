@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="layout-container">
-
-        <h1>Library</h1>
-        <button class="new-book">New Book</button>
-        <div class="books-container">
-        </div>
-        <dialog>
-            <p>test</p>
-            <button class="close-button">Close</button>
-        </dialog>
+      <h1>Library</h1>
+      <button class="new-book">New Book</button>
+      <div class="books-container"></div>
+      <dialog>
+        <form action="#" method="get">
+          <div class="label-input-container">
+            <label for="title">Title of Book:</label>
+            <input type="text" id="title" name="title" />
+          </div>
+          <div class="label-input-container">
+            <label for="author">Author: </label>
+            <input type="text" id="author" name="author" />
+          </div>
+          <div class="label-input-container">
+            <label for="pages">Total Pages: </label>
+            <input type="text" id="pages" name="pages" />
+          </div>
+          <div class="label-input-container">
+            <label for="read">Finished Reading: </label>
+            <input type="text" id="read" name="read" />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+        <button class="close-button">Close</button>
+      </dialog>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
