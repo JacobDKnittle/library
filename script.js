@@ -1,4 +1,7 @@
 const container = document.querySelector('.books-container');
+const dialog = document.querySelector('dialog');
+const newBook = document.querySelector('.new-book');
+const closeButton = document.querySelector('.close-button');
 
 const myLibrary = [];
 
@@ -28,7 +31,6 @@ function displayBook() {
             if (property !== 'id') {
                 let bookDetail = document.createElement('li');
                 bookDetail.textContent = `${property} : ${myLibrary[i][property]}`
-                console.log(myLibrary[i][property])
                 detailList.appendChild(bookDetail);
             }
         }
@@ -39,3 +41,11 @@ function displayBook() {
 }
 
 displayBook();
+
+newBook.addEventListener('click', () => {
+    dialog.showModal();
+})
+
+closeButton.addEventListener('click', () => {
+    dialog.close();
+})
