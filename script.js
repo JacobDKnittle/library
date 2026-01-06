@@ -22,10 +22,8 @@ function addBookToLibrary(title, author, pages, read) {
    myLibrary.push(new Book(title, author, pages, read, id))
 }
 
-addBookToLibrary('test', 'guy', 230, 'yes');
-addBookToLibrary('test2', 'gal', 330, 'no');
-
 function displayBook() {
+    container.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++) {
         let card = document.createElement('div');
         card.classList.add('card');
@@ -43,7 +41,7 @@ function displayBook() {
     }
 }
 
-displayBook();
+
 
 newBook.addEventListener('click', () => {
     dialog.showModal();
@@ -66,5 +64,6 @@ form.addEventListener('submit', (e) => {
     author.value = '';
     pages.value = '';
     read.value = '';
-    
+
+    displayBook();
 })
