@@ -23,6 +23,17 @@ function displayBook() {
     for (let i = 0; i < myLibrary.length; i++) {
         let card = document.createElement('div');
         card.classList.add('card');
+        let detailList = document.createElement('ul');
+        for (const property in myLibrary[i]) {
+            if (property !== 'id') {
+                let bookDetail = document.createElement('li');
+                bookDetail.textContent = myLibrary[i][property]
+                console.log(myLibrary[i][property])
+                detailList.appendChild(bookDetail);
+            }
+        }
+        card.appendChild(detailList)
+
         container.appendChild(card);
     }
 }
