@@ -3,8 +3,8 @@ const dialog = document.querySelector('dialog');
 const newBook = document.querySelector('.new-book');
 const closeButton = document.querySelector('.close-button');
 const submitButton = document.querySelector('.submit-button');
-
 const form = document.querySelector('form');
+
 
 const myLibrary = [];
 
@@ -33,12 +33,26 @@ function displayBook() {
                 let bookDetail = document.createElement('li');
                 bookDetail.textContent = `${property} : ${myLibrary[i][property]}`
                 detailList.appendChild(bookDetail);
+            } else if (property === 'id') {
+                card.dataset.id = myLibrary[i][property];
             }
         }
         card.appendChild(detailList)
-
+        let deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
+        deleteButton.innerText = 'Delete';
+        deleteButton.dataset.id = card.dataset.id;
+        console.log(deleteButton.dataset.id)
+        card.appendChild(deleteButton);
         container.appendChild(card);
     }
+    const deleteButtons = document.querySelectorAll('[data-id]');
+
+    deleteButtons.forEach(deleteButton => {
+    deleteButton.addEventListener('click', () => {
+        console.log(deleteButton.dataset.id);
+    })
+})
 }
 
 
@@ -67,3 +81,4 @@ form.addEventListener('submit', (e) => {
 
     displayBook();
 })
+

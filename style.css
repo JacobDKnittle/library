@@ -65,3 +65,11 @@ form button {
   margin-top: 20px;
   padding: 8px 24px;
 }
+
+.delete-button {
+    background-color: black;
+    color: white;
+    padding: 8px 24px;
+    margin-top: 20px;
+    
+}
