@@ -27,7 +27,7 @@ function displayBook() {
         for (const property in myLibrary[i]) {
             if (property !== 'id') {
                 let bookDetail = document.createElement('li');
-                bookDetail.textContent = myLibrary[i][property]
+                bookDetail.textContent = `${property} : ${myLibrary[i][property]}`
                 console.log(myLibrary[i][property])
                 detailList.appendChild(bookDetail);
             }
