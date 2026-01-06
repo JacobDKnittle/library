@@ -50,7 +50,12 @@ function displayBook() {
 
     deleteButtons.forEach(deleteButton => {
     deleteButton.addEventListener('click', () => {
-        console.log(deleteButton.dataset.id);
+        for (let i = 0; i < myLibrary.length; i++) {
+            if (myLibrary[i].id === deleteButton.dataset.id) {
+                myLibrary.splice(i, 1);
+            }
+        }
+        displayBook();
     })
 })
 }
