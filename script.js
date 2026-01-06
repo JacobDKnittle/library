@@ -14,6 +14,10 @@ function Book(title, author, pages, read, id) {
   this.pages = pages;
   this.read = read;
   this.id = id;
+
+  this.toggleRead = function() {
+    console.log(this.read)
+  }
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -29,7 +33,7 @@ function displayBook() {
         card.classList.add('card');
         let detailList = document.createElement('ul');
         for (const property in myLibrary[i]) {
-            if (property !== 'id') {
+            if (property !== 'id' && property != 'toggleRead') {
                 let bookDetail = document.createElement('li');
                 bookDetail.textContent = `${property} : ${myLibrary[i][property]}`
                 detailList.appendChild(bookDetail);
@@ -38,18 +42,26 @@ function displayBook() {
             }
         }
         card.appendChild(detailList)
+
         let deleteButton = document.createElement('button');
         deleteButton.classList.add('delete-button');
         deleteButton.innerText = 'Delete';
         deleteButton.dataset.id = card.dataset.id;
-        console.log(deleteButton.dataset.id)
         card.appendChild(deleteButton);
+
+        let toggleButton = document.createElement('button');
+        toggleButton.classList.add('toggle-button')
+        toggleButton.innerText = 'Toggle Read';
+        toggleButton.dataset.id = card.dataset.id;
+        card.appendChild(toggleButton);
+
         container.appendChild(card);
     }
-    const deleteButtons = document.querySelectorAll('[data-id]');
+    const deleteButtons = document.querySelectorAll('.delete-button');
 
     deleteButtons.forEach(deleteButton => {
-    deleteButton.addEventListener('click', () => {
+    deleteButton.addEventListener('click', (e) => {
+        e.stopPropagation()
         for (let i = 0; i < myLibrary.length; i++) {
             if (myLibrary[i].id === deleteButton.dataset.id) {
                 myLibrary.splice(i, 1);
