@@ -12,24 +12,24 @@
       <button class="new-book">New Book</button>
       <div class="books-container"></div>
       <dialog>
-        <form action="#" method="get">
+        <form action="#" method="post">
           <div class="label-input-container">
             <label for="title">Title of Book:</label>
-            <input type="text" id="title" name="title" />
+            <input type="text" id="title" name="title" required/>
           </div>
           <div class="label-input-container">
             <label for="author">Author: </label>
-            <input type="text" id="author" name="author" />
+            <input type="text" id="author" name="author" required/>
           </div>
           <div class="label-input-container">
             <label for="pages">Total Pages: </label>
-            <input type="text" id="pages" name="pages" />
+            <input type="number" id="pages" name="pages" required/>
           </div>
           <div class="label-input-container">
             <label for="read">Finished Reading: </label>
-            <input type="text" id="read" name="read" />
+            <input type="text" id="read" name="read" required/>
           </div>
-          <button type="submit">Submit</button>
+          <button class="submit-button" type="submit">Submit</button>
         </form>
         <button class="close-button">Close</button>
       </dialog>
