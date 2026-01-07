@@ -16,7 +16,11 @@ function Book(title, author, pages, read, id) {
   this.id = id;
 
   this.toggleRead = function() {
-    console.log(this.read)
+    if (this.read === 'Yes') {
+        this.read = 'No'
+    } else {
+        this.read = 'Yes'
+    }
   }
 }
 
@@ -77,13 +81,7 @@ function displayBook() {
             e.stopPropagation()
             for (let i = 0; i < myLibrary.length; i++) {
             if (myLibrary[i].id === toggleButton.dataset.id) {
-                if (myLibrary[i].read === 'Yes'){
-                    myLibrary[i].read = 'No'
-                   
-                } else {
-                    myLibrary[i].read = 'Yes'
-                    
-                }
+                myLibrary[i].toggleRead()
             }
         }
         displayBook();
