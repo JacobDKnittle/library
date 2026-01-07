@@ -26,8 +26,11 @@
             <input type="number" id="pages" name="pages" required/>
           </div>
           <div class="label-input-container">
-            <label for="read">Finished Reading: </label>
-            <input type="text" id="read" name="read" required/>
+            <span>Finished reading: </span>
+            <label for="yes">Yes: </label>
+            <input type="radio" name="read" id="yes" value="Yes" checked>
+            <label for="no">No: </label>
+            <input type="radio" name="read" id="no" value="No">
           </div>
           <button class="submit-button" type="submit">Submit</button>
         </form>

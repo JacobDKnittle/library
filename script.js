@@ -70,6 +70,25 @@ function displayBook() {
         displayBook();
     })
 })
+
+    const toggleButtons = document.querySelectorAll('.toggle-button');
+    toggleButtons.forEach(toggleButton => {
+        toggleButton.addEventListener('click', (e) => {
+            e.stopPropagation()
+            for (let i = 0; i < myLibrary.length; i++) {
+            if (myLibrary[i].id === toggleButton.dataset.id) {
+                if (myLibrary[i].read === 'Yes'){
+                    myLibrary[i].read = 'No'
+                   
+                } else {
+                    myLibrary[i].read = 'Yes'
+                    
+                }
+            }
+        }
+        displayBook();
+        })
+    })
 }
 
 
@@ -87,7 +106,7 @@ form.addEventListener('submit', (e) => {
     const title = document.querySelector('#title');
     const author = document.querySelector('#author');
     const pages = document.querySelector('#pages');
-    const read = document.querySelector('#read');
+    const read = document.querySelector('input[name="read"]:checked');
 
     addBookToLibrary(title.value, author.value, pages.value, read.value);
     
@@ -98,4 +117,3 @@ form.addEventListener('submit', (e) => {
 
     displayBook();
 })
-
